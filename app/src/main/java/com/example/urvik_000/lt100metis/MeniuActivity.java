@@ -2,13 +2,15 @@ package com.example.urvik_000.lt100metis;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.FragmentManager;
+import android.support.v4.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,8 +20,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 public class MeniuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -56,6 +62,43 @@ public class MeniuActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+
+        // inflate the layout of the popup window
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        final View popupView = inflater.inflate(R.layout.popup_window, null);
+
+        // create the popup window
+        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        boolean focusable = true; // lets taps outside the popup also dismiss it
+        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+
+        final View v = inflater.inflate(R.layout.content_meniu, null);
+        //View v = mainWin.getContentView();
+        // show the popup window
+        popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
+        /*
+        // dismiss the popup window when touched
+        popupView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                popupWindow.dismiss();
+                return true;
+            }
+        });*/
+        Button btn = (Button)popupView.findViewById(R.id.button2);
+        btn.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                View contentView = popupWindow.getContentView();
+                TextView txt4 = findViewById(R.id.textView4);
+                EditText et2 = contentView.findViewById(R.id.editText2);
+                String name = et2.getText().toString();      //šitoje eilutėje problemytėėėėėėė et2 = null
+                txt4.setText(name);
+                popupWindow.dismiss();
+            }});
+
         getMenuInflater().inflate(R.menu.meniu, menu);
         return true;
     }
@@ -79,8 +122,9 @@ public class MeniuActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+
         int id = item.getItemId();
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
 
         ImageButton ib = findViewById(R.id.imageButton2);
         ib.setOnClickListener(new View.OnClickListener() {
@@ -88,16 +132,6 @@ public class MeniuActivity extends AppCompatActivity
             public void onClick(View view){
 
                 SelectImage();
-            }
-        });
-
-        EditText et = findViewById(R.id.editText);
-        et.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                EditText et = findViewById(R.id.editText);
-                /*et.setEnabled(false);
-                et.setClickable(false);*/
             }
         });
 

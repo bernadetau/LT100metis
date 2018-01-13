@@ -5,9 +5,28 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="vartotojo_vardas">Vardas</string>
     <string name="titulas">Pasiekimas</string>
 
     <string name="action_settings">Nustatymai</string>
     <string name="imageButton2">Profilio nuotrauka</string>
+
+    <string name="signataru_namai">Pilies g. 26</string>
+    <string name="lenta_basanaviciui">Bokšto g.</string>
+    <string name="kudirkos_paminklas">Gedimino pr. 11B</string>
+    <string name="vvdg">Augustijonų g. 8/10</string>
+    <string name="faustinos_paminklas">Rasų g. 4A</string>
+    <string name="tremtiniams">Aukų g. 2A</string>
+    <string name="didysis_getas">Mėsinių g. 3</string>
+    <string name="sabadui_paminklas">Dysnos g. 2A</string>
+    <string name="vardu_lenteles">Gedimino pr. 40</string>
+    <string name="zemaiciui_paminklas">Totorių g. 28</string>
+    <string name="jurgaiciui_paminklas">Gedimino pr. 6</string>
+    <string name="vingio_parkas">M. K. Čiurlionio g.</string>
+    <string name="laisves_kelias">Konstitucijos pr.</string>
+    <string name="spaudos_rumai">Justiniškių g. 12</string>
+    <string name="seimo_rumai">Gedimino pr. 53</string>
+    <string name="tv_bokstas">Sausio 13-osios g. 10</string>
+    <string name="prezidentura">S. Daukanto a. 3</string>
+    <string name="popieziui_paminklas">T. Kosciuškos g. 28</string>
+
 </resources>
