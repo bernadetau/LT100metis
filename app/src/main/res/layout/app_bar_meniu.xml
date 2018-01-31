@@ -20,6 +20,19 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_meniu" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_meniu" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text=""
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="left|center" />
 
 </android.support.design.widget.CoordinatorLayout>

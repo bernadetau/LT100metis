@@ -1,14 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_quiz"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fonasbe"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="8dp"
+        android:layout_marginBottom="40dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teisingai atsakyta"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/score_text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:id="@+id/score"
+            android:layout_alignParentRight="true"
+            android:text="0"
+            android:textSize="20sp"/>
+
+    </RelativeLayout>
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="Kiek signatarų pasirašė Lietuvos nepriklausomybės aktą?"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:padding="8dp"
+        android:layout_marginBottom="40dp"
+        android:id="@+id/question"/>
+
+
+    <Button
+        android:id="@+id/choice1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="203dp"
-        android:text="Zaidimai"
-        android:textSize="30sp" />
-</RelativeLayout>
+        android:layout_marginBottom="24dp"
+        android:background="@android:color/holo_green_dark"
+        android:padding="8dp"
+        android:text="21"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/choice2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@android:color/holo_green_dark"
+        android:padding="8dp"
+        android:text="18"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/choice3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@android:color/holo_green_dark"
+        android:padding="8dp"
+        android:text="20"
+        android:textColor="#fff" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Išeiti"
+        android:background="#B71C1C"
+        android:textColor="#fff"
+        android:padding="8dp"
+        android:layout_marginBottom="24dp"
+        android:id="@+id/quit"/>
+
+</LinearLayout>
