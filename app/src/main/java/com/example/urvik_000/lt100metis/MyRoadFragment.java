@@ -1,5 +1,12 @@
 package com.example.urvik_000.lt100metis;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -7,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,18 +26,22 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static android.content.Context.LOCATION_SERVICE;
+
 public class MyRoadFragment extends Fragment{
 
     View myView;
     ListView listView;
     ArrayList<String> places = new ArrayList<>();
 
+    private LocationManager locationManager;
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        myView = inflater.inflate(R.layout.myroad_layout, container, false);
+                myView = inflater.inflate(R.layout.myroad_layout, container, false);
 
             places.add(getString(R.string.didysis_getas));
             places.add(getString(R.string.faustinos_paminklas));
@@ -85,4 +97,10 @@ public class MyRoadFragment extends Fragment{
             });
         return myView;
     }
+        @Override
+        public void onResume() {
+            // TODO Auto-generated method stub
+            super.onResume();
+            places = new ArrayList();
+        }
 }

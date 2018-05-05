@@ -2,6 +2,7 @@ package com.example.urvik_000.lt100metis;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.location.LocationListener;
 import android.support.v4.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -77,15 +78,27 @@ public class MeniuActivity extends AppCompatActivity
         //View v = mainWin.getContentView();
         // show the popup window
         popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
-        /*
-        // dismiss the popup window when touched
+
+
+        /*// dismiss the popup window when touched
         popupView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                popupWindow.dismiss();
+                popupWindow.setOutsideTouchable(false);
                 return true;
             }
         });*/
+
+
+        ImageButton ib = findViewById(R.id.imageButton2);
+        ib.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+
+                SelectImage();
+            }
+        });
+
         Button btn = (Button)popupView.findViewById(R.id.button2);
         btn.setOnClickListener(new Button.OnClickListener(){
 
@@ -126,17 +139,17 @@ public class MeniuActivity extends AppCompatActivity
         int id = item.getItemId();
         FragmentManager fm = getSupportFragmentManager();
 
-        ImageButton ib = findViewById(R.id.imageButton2);
+        /*ImageButton ib = findViewById(R.id.imageButton2);
         ib.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
 
                 SelectImage();
             }
-        });
+        });*/
 
         if (id == R.id.nav_main_page){
-
+            fm.beginTransaction().replace(R.id.mainFrame, new MainPageFragment()).commit();
         } else if (id == R.id.nav_road) {
             fm.beginTransaction().replace(R.id.mainFrame, new MyRoadFragment()).commit();
         } else if (id == R.id.nav_game) {

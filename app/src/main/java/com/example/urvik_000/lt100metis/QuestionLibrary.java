@@ -6,21 +6,25 @@ public class QuestionLibrary {
                 "Kiek signatarų pasirašė Lietuvos nepriklausomybės aktą?",
                 "„Tautiškos giesmės“  autorius:",
                 "Pirmoji lietuviška gimnazija yra",
-                "Lietuvos nepriklausomybės atkūrimo aktas buvo paskelbtas"
+                "Lietuvos nepriklausomybės atkūrimo aktas buvo paskelbtas",
+                "Žaidimo pabaiga"
 
         };
+
+        int QuestionLibraryLength = Questions.length;
 
 
         private String Choices [][] = {
                 {"21", "18", "20"},
                 {"Jonas Basanavičius", "Vincas Kudirka", "Adomas Mickevičius"},
                 {"Mykolo Biržiškos gimnazija", "Jėzuitų gimnazija", "Vytauto Didžiojo gimnazija"},
-                {"Seimo rūmuose", "Signatarų namuose", "Prezidentūroje"}
+                {"Seimo rūmuose", "Signatarų namuose", "Prezidentūroje"},
+                {"Žaidimo pabaiga", "Žaidimo pabaiga", "Žaidimo pabaiga"}
         };
 
 
 
-        private String CorrectAnswers[] = {"20", "Vincas Kudirka", "Vytauto Didžiojo gimnazija", "Seimo rūmai"};
+        private String CorrectAnswers[] = {"20", "Vincas Kudirka", "Vytauto Didžiojo gimnazija", "Seimo rūmuose", "Žaidimo pabaiga"};
 
 
 
