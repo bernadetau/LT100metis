@@ -14,5 +14,16 @@
         android:layout_height="match_parent"
         android:id="@+id/mainFrame">
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="407dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:gravity="bottom"
+            android:text="Švęskime Lietuvos šimtmetį Vilniuje! Švenčiame ne vieną datą, o šimto metų sėkmės istoriją, kurią kūrėme visi. Todėl kviečiu pažinti Vilniaus vietas, kurios primena istorinius iššūkius ir pasiekimus."
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="22sp" />
     </FrameLayout>
 </android.support.constraint.ConstraintLayout>

@@ -2,6 +2,8 @@ package com.example.urvik_000.lt100metis;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.location.LocationListener;
 import android.support.v4.app.FragmentManager;
 import android.content.DialogInterface;
@@ -27,6 +29,18 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 
 public class MeniuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -75,19 +89,67 @@ public class MeniuActivity extends AppCompatActivity
         final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
 
         final View v = inflater.inflate(R.layout.content_meniu, null);
-        //View v = mainWin.getContentView();
-        // show the popup window
+
         popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
+        Button btn = (Button)popupView.findViewById(R.id.button2);
+        btn.setOnClickListener(new Button.OnClickListener(){
 
-
-        /*// dismiss the popup window when touched
-        popupView.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                popupWindow.setOutsideTouchable(false);
-                return true;
-            }
-        });*/
+            public void onClick(View v) {
+                View contentView = popupWindow.getContentView();
+                TextView txt4 = findViewById(R.id.textView4);
+                EditText et2 = contentView.findViewById(R.id.editText2);
+                String name = et2.getText().toString();
+                txt4.setText(name);
+                popupWindow.dismiss();
+            }});
+
+       /* try{
+            FileReader failas = new FileReader("C:\\Users\\urvik_000\\Desktop\\duom.txt");
+            //FileReader failas = new FileReader("duom.txt");
+            BufferedReader bf = new BufferedReader(failas);
+            String line = bf.readLine();
+            File f = new File("C:\\Users\\urvik_000\\Desktop\\duom.txt");
+            f.mkdirs();
+
+                if(f.length()==0){
+
+                    boolean focusable = false; // lets taps outside the popup also dismiss it
+                    final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+                    popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
+                    Button btn = (Button)popupView.findViewById(R.id.button2);
+                    btn.setOnClickListener(new Button.OnClickListener(){
+
+                        @Override
+                        public void onClick(View v) {
+                            View contentView = popupWindow.getContentView();
+                            TextView txt4 = findViewById(R.id.textView4);
+                            EditText et2 = contentView.findViewById(R.id.editText2);
+                            String name = et2.getText().toString();
+                            txt4.setText(name);
+
+                            try{ Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:\\Users\\urvik_000\\Desktop\\LT100metis\\app\\src\\main\\res\\duom.txt"), "utf-8"));
+                                writer.write(name);
+                            }catch(IOException exc){
+
+                            }
+
+                            popupWindow.dismiss();
+                        }});
+
+                } else {
+
+                        TextView txt4 = findViewById(R.id.textView4);
+                        String vardas = bf.readLine();
+                        txt4.setText(vardas);
+
+                }
+        }catch(IOException ex){
+
+            String mess = ex.getMessage();
+
+            Toast.makeText(this, mess, Toast.LENGTH_SHORT).show();
+        }*/
 
 
         ImageButton ib = findViewById(R.id.imageButton2);
@@ -99,7 +161,7 @@ public class MeniuActivity extends AppCompatActivity
             }
         });
 
-        Button btn = (Button)popupView.findViewById(R.id.button2);
+        /*Button btn = (Button)popupView.findViewById(R.id.button2);
         btn.setOnClickListener(new Button.OnClickListener(){
 
             @Override
@@ -109,14 +171,15 @@ public class MeniuActivity extends AppCompatActivity
                 EditText et2 = contentView.findViewById(R.id.editText2);
                 String name = et2.getText().toString();      //šitoje eilutėje problemytėėėėėėė et2 = null
                 txt4.setText(name);
-                popupWindow.dismiss();
-            }});
 
-        getMenuInflater().inflate(R.menu.meniu, menu);
+                popupWindow.dismiss();
+            }});*/
+
+        //getMenuInflater().inflate(R.menu.meniu, menu);
         return true;
     }
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -129,7 +192,7 @@ public class MeniuActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -152,6 +215,12 @@ public class MeniuActivity extends AppCompatActivity
             fm.beginTransaction().replace(R.id.mainFrame, new MainPageFragment()).commit();
         } else if (id == R.id.nav_road) {
             fm.beginTransaction().replace(R.id.mainFrame, new MyRoadFragment()).commit();
+        }else if (id == R.id.nav_road1) {
+            fm.beginTransaction().replace(R.id.mainFrame, new FirstRoutFragment()).commit();
+        } else if (id == R.id.nav_road2){
+            fm.beginTransaction().replace(R.id.mainFrame, new SecondRoutFragment()).commit();
+        } else if (id == R.id.nav_road3){
+            fm.beginTransaction().replace(R.id.mainFrame, new ThirdRoutFragment()).commit();
         } else if (id == R.id.nav_game) {
             fm.beginTransaction().replace(R.id.mainFrame, new GameFragment()).commit();
         }
